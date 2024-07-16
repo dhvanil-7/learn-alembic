@@ -37,5 +37,3 @@ services:
 
 networks:
   learn_alembic:
-
-      
