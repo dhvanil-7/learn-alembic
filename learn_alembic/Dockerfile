@@ -13,5 +13,8 @@ COPY ./poetry.lock ./pyproject.toml ./
 
 RUN poetry config virtualenvs.create false && \
     poetry config virtualenvs.in-project true && \
-    poetry shell && \
     poetry install
+
+WORKDIR /src/learn_alembic
+
+CMD ["alembic", "upgrade", "head"]

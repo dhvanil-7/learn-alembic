@@ -16,6 +16,11 @@ services:
       - 1433:1433
     networks:
       - learn_alembic
+    healthcheck:
+      test: ["CMD", "/bin/bash", "./database_scripts/check_health.sh"]
+      interval: 5s
+      timeout: 30s
+      retries: 5
 
   alembic_app:
     env_file:
@@ -24,8 +29,9 @@ services:
       dockerfile: ./learn_alembic/Dockerfile
     volumes:
       - ./:/src:cache
-    ports:
-      - "5000:5000"
+    depends_on:
+      db:
+        condition: service_healthy
     networks:
       - learn_alembic
 
