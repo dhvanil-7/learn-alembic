@@ -1,0 +1,17 @@
+This is an project to learn about alembic using docker images.
+
+## Tools used:
+- Programming Language: Python
+- Database: MSSQL server
+- Libraries: alembic, sqlalchemy
+- Package management: Poetry
+
+## What is alembic?
+Alembic is a lightweight database migration tool for usage with the SQLAlchemy Database Toolkit for Python.
+For more info: [Welcome to Alembic’s documentation!](https://alembic.sqlalchemy.org/en/latest/)
+
+## What is sqlAlchemy?
+SQLAlchemy is the Python SQL toolkit and Object Relational Mapper that gives application developers the full power and flexibility of SQL. For more info: [sqlAlchemy documentation](https://docs.sqlalchemy.org/en/20/)
+
+## What is poetry?
+Poetry is a tool for dependency management and packaging in Python. It allows you to declare the libraries your project depends on and it will manage (install/update) them for you. Poetry offers a lockfile to ensure repeatable installs, and can build your project for distribution. For more info: [Poetry documentation](https://python-poetry.org/docs/)

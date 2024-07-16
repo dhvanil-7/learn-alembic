@@ -1,0 +1,35 @@
+name: learn_alembic
+
+services:
+  db: 
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: mssql_db
+    entrypoint: ["/bin/bash", "./database_scripts/start_database_service.sh"]
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: StrongPass!123
+      DB_DATABASE: learn_alembic
+    volumes:
+      - ./local_data/mssql/data:/var/opt/mssql/data
+      - ./database_scripts:/database_scripts
+    ports:
+      - 1433:1433
+    networks:
+      - learn_alembic
+
+  alembic_app:
+    env_file:
+      - .env
+    build:
+      dockerfile: ./learn_alembic/Dockerfile
+    volumes:
+      - ./:/src:cache
+    ports:
+      - "5000:5000"
+    networks:
+      - learn_alembic
+
+networks:
+  learn_alembic:
+
+      
