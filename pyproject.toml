@@ -2,7 +2,7 @@
 name = "learn-alembic"
 version = "0.1.0"
 description = "This module is for learning alembic tool."
-authors = ["dhvanil-7 <dkprajapati46@gmail.com>"]
+authors = []
 readme = "README.md"
 
 [tool.poetry.dependencies]
