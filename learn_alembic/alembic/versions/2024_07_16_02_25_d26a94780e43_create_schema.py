@@ -21,12 +21,12 @@ depends_on: Union[str, Sequence[str], None] = None
 def upgrade() -> None:
     op.execute("""
                 CREATE TABLE first_table (
-                    id UNIQUEIDENTIFIER,
+                    id UNIQUEIDENTIFIER default NEWID(),
                     name VARCHAR(MAX),
                     address VARCHAR(MAX),
-                    height INTEGER,
-                    weight DECIMAL(3,2)
-
+                    height_cm INTEGER,
+                    weight_kg DECIMAL(4,1),
+                    bmi DECIMAL(4,1)
                     CONSTRAINT first_table_primary_key_id PRIMARY KEY (id)
                 )
     """)
@@ -35,6 +35,6 @@ def upgrade() -> None:
 
 def downgrade() -> None:
     op.execute("""
-                DROP TABLE first_table
+                DROP TABLE dbo.first_table
     """)
     pass

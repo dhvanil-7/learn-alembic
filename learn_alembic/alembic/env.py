@@ -6,6 +6,11 @@ from sqlalchemy import pool
 from alembic import context
 import os
 
+import sqlalchemy.ext.declarative as dec
+
+
+SqlAlchemyBase = dec.declarative_base()
+
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
 config = context.config
@@ -19,7 +24,7 @@ if config.config_file_name is not None:
 # for 'autogenerate' support
 # from myapp import mymodel
 # target_metadata = mymodel.Base.metadata
-target_metadata = None
+target_metadata = SqlAlchemyBase.metadata
 
 DB_USER=os.getenv("DB_USER")
 DB_PASSWORD=os.getenv("DB_PASSWORD")
